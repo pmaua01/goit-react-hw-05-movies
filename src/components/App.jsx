@@ -3,6 +3,7 @@ import { Home } from 'pages/Home';
 import { Movies } from 'pages/Movies';
 import { MovieDetail } from 'pages/MovieDetail';
 import { Cast } from 'pages/Cast';
+import { Reviews } from 'pages/Reviewes';
 // import { useState } from 'react';
 
 export const App = () => {
@@ -18,6 +19,7 @@ export const App = () => {
         <Route path="/movies" element={<Movies />}>
           <Route path=":id" element={<MovieDetail />}>
             <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>
       </Routes>

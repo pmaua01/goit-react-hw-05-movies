@@ -69,8 +69,8 @@ export const MovieDetail = () => {
         <h1>Aditional information</h1>
 
         <Link to="cast">Cast</Link>
+        <Link to="reviews">Reviews</Link>
 
-        <p>Rewiev</p>
         <Outlet />
       </div>
     </main>

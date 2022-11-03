@@ -28,7 +28,7 @@ export const Cast = () => {
     return;
   }
 
-  getImgActorFn(6807).then(r => console.log(r));
+  // getImgActorFn(6807).then(r => console.log(r));
 
   return (
     <div>

@@ -30,10 +30,19 @@ export const apiCast = async id => {
 };
 
 export const apiActorImg = async id => {
-  const response = await axios.get(`${BASE_URL}/person/${id}/images`, {
+  const response = await axios.get(`${BASE_URL}/movie/${id}/reviews`, {
     params: {
       api_key: BASE_KEY,
     },
   });
   return response.data.id;
+};
+
+export const apiReviewes = async id => {
+  const response = await axios.get(`${BASE_URL}/movie/${id}/reviews`, {
+    params: {
+      api_key: BASE_KEY,
+    },
+  });
+  return response.data.results;
 };
