@@ -1,16 +1,26 @@
+import { Route, Routes, NavLink } from 'react-router-dom';
+import { Home } from 'pages/Home';
+import { Movies } from 'pages/Movies';
+import { MovieDetail } from 'pages/MovieDetail';
+import { Cast } from 'pages/Cast';
+// import { useState } from 'react';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div style={{}}>
+      <nav>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/movies">Movies</NavLink>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />}>
+          <Route path=":id" element={<MovieDetail />}>
+            <Route path="cast" element={<Cast />} />
+          </Route>
+        </Route>
+      </Routes>
     </div>
   );
 };
