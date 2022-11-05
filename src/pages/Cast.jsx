@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { apiCast, apiActorImg } from 'components/helpers/Api';
+import { apiCast } from 'components/helpers/Api';
 
 export const Cast = () => {
   const [answerApiCast, setAnswerApiCast] = useState(null);
@@ -16,13 +16,6 @@ export const Cast = () => {
     }
     fetchFilmCast();
   }, [id]);
-
-  const getImgActorFn = async id => {
-    const response = await apiActorImg(id);
-    // console.log(response);
-
-    return response;
-  };
 
   if (!answerApiCast) {
     return;

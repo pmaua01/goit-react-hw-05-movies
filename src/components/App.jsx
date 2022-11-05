@@ -16,13 +16,17 @@ export const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />}>
-          <Route path=":id" element={<MovieDetail />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
-          </Route>
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies/:id" element={<MovieDetail />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
       </Routes>
     </div>
   );
 };
+
+// <Route path=":id" element={<MovieDetail />}>
+//   <Route path="cast" element={<Cast />} />
+//   <Route path="reviews" element={<Reviews />} />
+// </Route>;

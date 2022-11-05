@@ -1,18 +1,22 @@
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { apiMovieDetail } from 'components/helpers/Api';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 // import { Aditional } from './Aditional';
 
 export const MovieDetail = () => {
   const [filmDetail, setFilmDetail] = useState([]);
   // const isFirstRender = useRef(null);
   const { id } = useParams();
+  const location = useLocation();
+  const controller = useRef(new AbortController());
   // console.log(isFirstRender);
+  console.log('location on hook', location);
 
   useEffect(() => {
+    const controllerAbort = controller.current;
     async function fetchFilmDetail() {
       try {
-        const response = await apiMovieDetail(id);
+        const response = await apiMovieDetail(id, controllerAbort);
         const {
           poster_path,
           title,
@@ -37,6 +41,10 @@ export const MovieDetail = () => {
       }
     }
     fetchFilmDetail();
+
+    // return () => {
+    //   controllerAbort.abort();
+    // };
   }, [id]);
 
   // const { poster_path, title, popularity, overview, release_date, genres } =
@@ -52,8 +60,13 @@ export const MovieDetail = () => {
     normilizePopularity,
     normilizeGenre,
   } = filmDetail;
+
+  console.log('location.state.from', location.state.from);
   return (
     <main>
+      <Link to={location.state.from}>
+        <button type="button">Go back</button>
+      </Link>
       <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" />
       <div>
         <h1>
@@ -68,8 +81,12 @@ export const MovieDetail = () => {
       <div>
         <h1>Aditional information</h1>
 
-        <Link to="cast">Cast</Link>
-        <Link to="reviews">Reviews</Link>
+        <Link to="cast" state={{ from: location.state.from }}>
+          Cast
+        </Link>
+        <Link to="reviews" state={{ from: location.state.from }}>
+          Reviews
+        </Link>
 
         <Outlet />
       </div>

@@ -9,6 +9,7 @@ export const Reviews = () => {
       const response = await apiReviewes(id);
       console.log(response);
       setAnserApiReviewes(response);
+      console.log(response);
     }
     fetchFilmReviewes();
   }, [id]);
@@ -17,11 +18,20 @@ export const Reviews = () => {
   if (!anserApiReviewes) {
     return;
   }
+
   return (
     <div>
-      {anserApiReviewes.map(el => {
-        return <p key={id}>{el.content}</p>;
-      })}
+      <ul>
+        {anserApiReviewes.length === 0 && <p>Sorry not results</p>}
+        {anserApiReviewes.map(({ content, id, author }) => {
+          return (
+            <li key={id}>
+              <h2>Author:{author}</h2>
+              {content}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

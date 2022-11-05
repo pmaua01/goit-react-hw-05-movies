@@ -1,10 +1,11 @@
 import { api } from '../components/helpers/Api';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const Home = () => {
   const [response, setResponse] = useState([]);
   // const [id, SetId] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
     async function fetch() {
@@ -24,7 +25,9 @@ export const Home = () => {
         {response.map(({ title, id, name }) => {
           return (
             <li key={id}>
-              <Link to={`/movies/${id}`}>{title || name}</Link>
+              <Link to={`/movies/${id}`} state={{ from: location }}>
+                {title || name}
+              </Link>
             </li>
           );
         })}
