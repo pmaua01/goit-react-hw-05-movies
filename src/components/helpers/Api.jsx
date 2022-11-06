@@ -11,10 +11,10 @@ export const api = async () => {
   return response.data.results;
 };
 
-export const apiMovieDetail = async (id, controllerAbort) => {
-  console.log(controllerAbort);
+export const apiMovieDetail = async (id, controller) => {
+  console.log(controller);
   const response = await axios.get(`${BASE_URL}movie/${id}`, {
-    signal: controllerAbort.signal,
+    signal: controller.signal,
     params: {
       api_key: BASE_KEY,
     },
@@ -22,8 +22,9 @@ export const apiMovieDetail = async (id, controllerAbort) => {
   return response.data;
 };
 
-export const apiCast = async id => {
+export const apiCast = async (id, controller) => {
   const response = await axios.get(`${BASE_URL}/movie/${id}/credits`, {
+    signal: controller.signal,
     params: {
       api_key: BASE_KEY,
     },
@@ -40,8 +41,9 @@ export const apiCast = async id => {
 //   return response.data.id;
 // };
 
-export const apiReviewes = async id => {
+export const apiReviewes = async (id, controller) => {
   const response = await axios.get(`${BASE_URL}/movie/${id}/reviews`, {
+    signal: controller.signal,
     params: {
       api_key: BASE_KEY,
     },
@@ -49,8 +51,9 @@ export const apiReviewes = async id => {
   return response.data.results;
 };
 
-export const apiFindMovie = async query => {
+export const apiFindMovie = async (query, controller) => {
   const response = await axios.get(`${BASE_URL}search/movie`, {
+    signal: controller.signal,
     params: {
       api_key: BASE_KEY,
       query: query,

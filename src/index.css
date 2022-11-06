@@ -1,15 +1,88 @@
 @import-normalize; /* bring in normalize.css styles */
 
 body {
+  list-style: none;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+}
+
+.ul{
+  list-style: none;
+  outline: 1px solid red;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* a {
+  text-decoration: none;
+  color: inherit;
+} */
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  height: auto;
+}
+
+.navlink {
+
+  font-size: 20px;
+  margin-left: 20px;
+  text-decoration: none;
+  color: black
+}
+
+/* .navlink:hover{
+    color: rosybrown
+   } */
+
+.navlink.active {
+ 
+  color: red;
 }

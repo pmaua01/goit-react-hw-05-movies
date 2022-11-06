@@ -3,6 +3,7 @@ import { useSearchParams, useLocation } from 'react-router-dom';
 import { apiFindMovie } from 'components/helpers/Api';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import css from '../components/main.module.css';
 // import { Outlet } from 'react-router-dom';
 export const Movies = () => {
   const [searchParams, setSeacrhParams] = useSearchParams();
@@ -17,10 +18,14 @@ export const Movies = () => {
   };
 
   useEffect(() => {
+    const controller = new AbortController();
     if (searchQuery === '') {
       return;
     }
-    apiFindMovie(searchQuery).then(setAnswerApi);
+    apiFindMovie(searchQuery, controller).then(setAnswerApi);
+    return () => {
+      controller.abort();
+    };
   }, [searchQuery]);
 
   console.log('location in movie', location);
@@ -29,9 +34,9 @@ export const Movies = () => {
       <SearchBox onChangeQuery={onChange} />
       {/* <Outlet /> */}
       {anwerApi.length > 0 && (
-        <ul>
+        <ul className={css.homeList}>
           {anwerApi.map(({ id, title, name }) => (
-            <li key={id}>
+            <li className={css.homeListItem} key={id}>
               <Link to={`${id}`} state={{ from: location }}>
                 {title || name}
               </Link>

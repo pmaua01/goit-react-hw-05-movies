@@ -2,6 +2,8 @@ import { api } from '../components/helpers/Api';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+import css from '../components/main.module.css';
+
 export const Home = () => {
   const [response, setResponse] = useState([]);
   // const [id, SetId] = useState('');
@@ -20,11 +22,11 @@ export const Home = () => {
 
   return (
     <>
-      <h1>Tranding today</h1>
-      <ul>
+      <h1 className={css.homeTitle}>Tranding today</h1>
+      <ul className={css.homeList}>
         {response.map(({ title, id, name }) => {
           return (
-            <li key={id}>
+            <li className={css.homeListItem} key={id}>
               <Link to={`/movies/${id}`} state={{ from: location }}>
                 {title || name}
               </Link>

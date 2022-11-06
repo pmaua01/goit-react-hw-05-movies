@@ -5,13 +5,17 @@ export const Reviews = () => {
   const { id } = useParams();
   const [anserApiReviewes, setAnserApiReviewes] = useState(null);
   useEffect(() => {
+    const controller = new AbortController();
     async function fetchFilmReviewes() {
-      const response = await apiReviewes(id);
+      const response = await apiReviewes(id, controller);
       console.log(response);
       setAnserApiReviewes(response);
       console.log(response);
     }
     fetchFilmReviewes();
+    return () => {
+      controller.abort();
+    };
   }, [id]);
   console.log(id);
 
