@@ -22,14 +22,14 @@ const MovieDetail = lazy(() =>
 );
 
 const Cast = lazy(() =>
-  import('../pages/Cast').then(module => ({
+  import('./Cast').then(module => ({
     ...module,
     default: module.Cast,
   }))
 );
 
 const Reviews = lazy(() =>
-  import('../pages/Reviewes').then(module => ({
+  import('./Reviewes').then(module => ({
     ...module,
     default: module.Reviews,
   }))
@@ -39,16 +39,27 @@ export const App = () => {
   return (
     <div style={{}}>
       <nav className={css.seacrhbar}>
-        <NavLink to="/" className="navlink">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `${css.navlink} ${isActive ? css.active : undefined}`
+          }
+        >
           Home
         </NavLink>
-        <NavLink className="navlink" to="/movies">
+        <NavLink
+          className={({ isActive }) =>
+            `${css.navlink} ${isActive ? css.active : undefined}`
+          }
+          to="/movies"
+        >
           Movies
         </NavLink>
       </nav>
       <Suspense>
         <Routes>
           <Route path="/" element={<Home />} />
+
           <Route path="/movies" element={<Movies />} />
           <Route path="/movies/:id" element={<MovieDetail />}>
             <Route path="cast" element={<Cast />} />

@@ -1,6 +1,6 @@
 import { SearchBox } from 'components/SearchBox';
 import { useSearchParams, useLocation } from 'react-router-dom';
-import { apiFindMovie } from 'components/helpers/Api';
+import { apiFindMovie } from 'helpers/Api';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import css from '../components/main.module.css';

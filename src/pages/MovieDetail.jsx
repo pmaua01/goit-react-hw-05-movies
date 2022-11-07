@@ -1,5 +1,5 @@
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
-import { apiMovieDetail } from 'components/helpers/Api';
+import { apiMovieDetail } from 'helpers/Api';
 import { useState, useEffect, Suspense } from 'react';
 // import { Aditional } from './Aditional';
 

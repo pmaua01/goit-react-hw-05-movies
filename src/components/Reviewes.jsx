@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { apiReviewes } from 'components/helpers/Api';
+import { apiReviewes } from 'helpers/Api';
 export const Reviews = () => {
   const { id } = useParams();
   const [anserApiReviewes, setAnserApiReviewes] = useState(null);

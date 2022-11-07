@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { apiCast } from 'components/helpers/Api';
+import { apiCast } from 'helpers/Api';
 import css from '../components/main.module.css';
 
 export const Cast = () => {

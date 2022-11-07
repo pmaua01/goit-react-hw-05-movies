@@ -1,4 +1,4 @@
-import { api } from '../components/helpers/Api';
+import { api } from '../helpers/Api';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
