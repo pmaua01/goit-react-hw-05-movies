@@ -5,8 +5,7 @@ import css from '../components/main.module.css';
 
 export const Cast = () => {
   const [answerApiCast, setAnswerApiCast] = useState(null);
-  // const [arrayId, setArratId] = useState([]);
-  // const [getImgActor, setImgActor] = useState([]);
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -25,8 +24,6 @@ export const Cast = () => {
   if (!answerApiCast) {
     return;
   }
-
-  // getImgActorFn(6807).then(r => console.log(r));
 
   return (
     <div className={css.cast}>

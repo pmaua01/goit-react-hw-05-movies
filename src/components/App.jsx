@@ -1,6 +1,7 @@
 import { Route, Routes, NavLink } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { Home } from 'pages/Home';
+import { NotFound } from 'pages/NotFound';
 import css from '../components/main.module.css';
 // import { Movies } from 'pages/Movies';
 // import { MovieDetail } from 'pages/MovieDetail';
@@ -65,6 +66,7 @@ export const App = () => {
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </div>

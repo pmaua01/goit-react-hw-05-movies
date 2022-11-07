@@ -54,11 +54,6 @@ export const MovieDetail = () => {
     };
   }, [id]);
 
-  // const { poster_path, title, popularity, overview, release_date, genres } =
-  //   filmDetail;
-  // const normilizeReleaseData = String(release_date).slice(0, 4);
-  // const normilizePopularity = Number(popularity).toFixed();
-  // const normilizeGenre = genres.map(genre => genre.name);
   const {
     poster_path,
     title,

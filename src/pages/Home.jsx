@@ -6,7 +6,7 @@ import css from '../components/main.module.css';
 
 export const Home = () => {
   const [response, setResponse] = useState([]);
-  // const [id, SetId] = useState('');
+
   const location = useLocation();
 
   useEffect(() => {
